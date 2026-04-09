@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Безопасность массовых мероприятий</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="container header">
+      <div>
+        <h1>Безопасность массовых мероприятий</h1>
+        <p class="subtitle">Оперативная сводка и контроль инцидентов</p>
+      </div>
+      <nav class="nav-actions">
+        <a class="btn" href="create.html">Создать инцидент</a>
+        <a class="btn btn-secondary" href="summary.html">Сводка</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <h2>Фильтры и данные</h2>
+
+        <div class="toolbar">
+          <input id="searchInput" type="search" placeholder="Поиск по названию, месту, описанию..." />
+          <select id="statusFilter">
+            <option value="Все">Все статусы</option>
+            <option value="Новый">Новый</option>
+            <option value="В работе">В работе</option>
+            <option value="Решен">Решен</option>
+          </select>
+          <select id="priorityFilter">
+            <option value="Все">Все приоритеты</option>
+            <option value="Низкий">Низкий</option>
+            <option value="Средний">Средний</option>
+            <option value="Высокий">Высокий</option>
+            <option value="Критический">Критический</option>
+          </select>
+        </div>
+
+        <div class="export-controls">
+          <button id="exportBtn" class="btn btn-secondary" type="button">Экспорт JSON</button>
+          <label class="file-input btn btn-secondary">
+            Импорт JSON
+            <input id="importInput" type="file" accept="application/json" />
+          </label>
+          <button id="resetFiltersBtn" class="btn btn-secondary" type="button">Сбросить фильтры</button>
+        </div>
+      </section>
+
+      <section class="card mt-12">
+        <div class="list-head">
+          <h2>Инциденты</h2>
+          <button id="clearAllBtn" class="btn btn-danger" type="button">Удалить все</button>
+        </div>
+        <div id="incidentList" class="incident-list"></div>
+        <p id="emptyState" class="empty">Инцидентов пока нет. Создай первый на отдельной странице.</p>
+      </section>
+    </main>
+
+    <template id="incidentTemplate">
+      <article class="incident-item">
+        <div class="incident-top">
+          <h3 class="incident-title"></h3>
+          <div class="badges">
+            <span class="badge priority"></span>
+            <span class="badge status"></span>
+          </div>
+        </div>
+        <p class="incident-meta"></p>
+        <p class="incident-description"></p>
+        <div class="incident-actions">
+          <button class="btn btn-secondary edit-btn" type="button">Редактировать</button>
+          <button class="btn btn-danger delete-btn" type="button">Удалить</button>
+        </div>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>

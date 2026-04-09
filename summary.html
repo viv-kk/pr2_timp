@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Сводка инцидентов</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="container header">
+      <div>
+        <h1>Сводка инцидентов</h1>
+      </div>
+      <nav class="nav-actions">
+        <a class="btn btn-secondary" href="index.html">К списку</a>
+        <a class="btn" href="create.html">Создать инцидент</a>
+      </nav>
+    </header>
+
+    <main class="container grid">
+      <section class="card">
+        <h2>Инциденты</h2>
+        <div class="stats">
+          <div class="stat"><span id="totalCount">0</span><small>Всего</small></div>
+          <div class="stat"><span id="newCount">0</span><small>Новые</small></div>
+          <div class="stat"><span id="inProgressCount">0</span><small>В работе</small></div>
+          <div class="stat"><span id="resolvedCount">0</span><small>Решено</small></div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Распределение по категориям</h2>
+        <div id="categoryStats" class="kv-list"></div>
+        <p id="categoryEmpty" class="empty">Нет данных для анализа.</p>
+      </section>
+
+      <section class="card full">
+        <h2>Критические и высокие</h2>
+        <div id="priorityList" class="incident-list"></div>
+        <p id="priorityEmpty" class="empty">Инцидентов высокого и критического приоритета нет.</p>
+      </section>
+    </main>
+
+    <template id="priorityTemplate">
+      <article class="incident-item">
+        <div class="incident-top">
+          <h3 class="incident-title"></h3>
+          <div class="badges">
+            <span class="badge priority"></span>
+            <span class="badge status"></span>
+          </div>
+        </div>
+        <p class="incident-meta"></p>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>

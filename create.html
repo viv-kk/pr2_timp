@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Создание инцидента</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="container header">
+      <div>
+        <h1 id="pageTitle">Создание инцидента</h1>
+        <p id="pageSubtitle" class="subtitle">Добавление инцидента</p>
+      </div>
+      <nav class="nav-actions">
+        <a class="btn btn-secondary" href="index.html">К списку инцидентов</a>
+        <a class="btn btn-secondary" href="summary.html">Сводка</a>
+      </nav>
+    </header>
+
+    <main class="container narrow">
+      <section class="card">
+        <h2 id="formTitle">Новый инцидент</h2>
+        <form id="incidentForm" class="form">
+          <input type="hidden" id="incidentId" />
+
+          <label>
+            Название
+            <input id="title" name="title" maxlength="120" required />
+          </label>
+
+          <label>
+            Место
+            <input id="location" name="location" maxlength="120" required />
+          </label>
+
+          <div class="row">
+            <label>
+              Категория
+              <select id="category" name="category" required>
+                <option value="Медицинский">Медицинский</option>
+                <option value="Пожарная безопасность">Пожарная безопасность</option>
+                <option value="Пропускной режим">Пропускной режим</option>
+                <option value="Подозрительный предмет">Подозрительный предмет</option>
+                <option value="Нарушение порядка">Нарушение порядка</option>
+              </select>
+            </label>
+
+            <label>
+              Приоритет
+              <select id="priority" name="priority" required>
+                <option value="Низкий">Низкий</option>
+                <option value="Средний">Средний</option>
+                <option value="Высокий">Высокий</option>
+                <option value="Критический">Критический</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="row">
+            <label>
+              Статус
+              <select id="status" name="status" required>
+                <option value="Новый">Новый</option>
+                <option value="В работе">В работе</option>
+                <option value="Решен">Решен</option>
+              </select>
+            </label>
+
+            <label>
+              Ответственный
+              <input id="assignee" name="assignee" maxlength="80" placeholder="ФИО / пост" />
+            </label>
+          </div>
+
+          <label>
+            Описание
+            <textarea id="description" name="description" rows="5" maxlength="1000"></textarea>
+          </label>
+
+          <div class="actions">
+            <button class="btn" type="submit" id="saveBtn">Сохранить</button>
+            <button class="btn btn-secondary" type="button" id="resetBtn">Очистить</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
